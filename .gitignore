@@ -1,0 +1,6 @@
+hasker/*
+!hasker/urls.py
+!hasker/wsgi.py
+!hasker/settings.py
+!hasker/__init__.py
+qa/__pycache__
