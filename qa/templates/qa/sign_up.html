@@ -1,0 +1,58 @@
+{% extends "qa/base.html" %}
+{% block content %}
+<style>
+.vl {
+  border-left: 6px solid black;
+  height: 50px;
+}
+
+</style>
+<div class="container-fluid">
+    <div class='row'>
+        <div class="col-sm-3">
+           <h2>Hasker</h2>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">b</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div>Log in</div>
+        </div>
+        <div class="col-sm-3">
+            <a href='http://localhost:8000/hasker/signup'>Sign up</a>
+        </div>
+    </div>
+    <hr>
+    <div class='row'>
+        <div class='col-sm-6'>
+            <h2>Sign up</h2>
+        </div>
+        <div class='col-sm-3'>Ask!</div>
+    </div>
+    <div class='row'>
+        <div class='col-sm-6'>
+            <form action="/hasker/signup" method="post">
+                {% csrf_token %}
+                <table>
+                {{ form.as_table }}
+                </table>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+        <div class='col-sm-6'>
+            <h2>Trending</h2>
+            {% for x in array %}
+            <div class='row'>
+                <div class='col-sm-6'>100</div>
+                <div class='col-sm-6'>How to python?</div>
+            </div>
+            {% endfor  %}
+        </div>
+    </div>
+</div>
+{% endblock  %}

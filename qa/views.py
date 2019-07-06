@@ -1,37 +1,70 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader, Context
+from django.shortcuts import render
+from .forms import NameForm
 
 def index(request):
     template = loader.get_template('qa/index.html')
     print('template found')
-    context = {}#Context({'blog_entries': ['title':'blog', 'body':'blog-body']})
-    html = template.render(context, request)
+    array = {'array':[1,2,3,4,5]}
+    html = template.render(array, request)
     return HttpResponse(html)
 
 def ask_question(request):
-    html = '<html><body>ask question</body></html>'
+    template = loader.get_template('qa/ask_question.html')
+    print('template found')
+    array = {'array':[1,2,3,4,5]}
+    html = template.render(array)
     return HttpResponse(html)
 
 def answer_question(request):
-    html = '<html><body>answer question</body></html>'
+    template = loader.get_template('qa/answer_question.html')
+    print('template found')
+    array = {'array':[1,2,3,4,5]}
+    html = template.render(array)
     return HttpResponse(html)
 
 def search_question(request):
-    html = '<html><body>search question</body></html>'
+    template = loader.get_template('qa/search_question.html')
+    print('template found')
+    array = {'array':[1,2,3,4,5]}
+    html = template.render(array)
     return HttpResponse(html)
 
 def search_tag(request):
-    html = '<html><body>search tag</body></html>'
+    template = loader.get_template('qa/search_tag.html')
+    print('template found')
+    array = {'array':[1,2,3,4,5]}
+    html = template.render(array)
     return HttpResponse(html)
 
 def signup(request):
-    html = '<html><body>signup</body></html>'
-    return HttpResponse(html)
+    if request.method == 'POST':
+        print(request.POST)
+        form = NameForm(request.POST)
+        print('is form vaild?')
+        if form.is_valid():
+            print('form is valid')
+            print(form.cleaned_data['login'])
+            print(form.cleaned_data['email'])
+            print(form.cleaned_data['password'])
+            print(form.cleaned_data['repeat_password'])
+            print('form is valid')
+            return HttpResponseRedirect('/hasker/login')
+    else:
+        form = NameForm()
+    return render(request, 'qa/sign_up.html', {'form': form, 'array':[1,2,3,4,5]})
 
 def login(request):
-    html = '<html><body>login</body></html>'
+    template = loader.get_template('qa/log_in.html')
+    print('template found')
+    array = {'array':[1,2,3,4,5]}
+    html = template.render(array)
     return HttpResponse(html)
 
 def settings(request):
-    html = '<html><body>settings</body></html>'
+    template = loader.get_template('qa/user_settings.html')
+    print('template found')
+    array = {'array':[1,2,3,4,5]}
+    html = template.render(array)
     return HttpResponse(html)
