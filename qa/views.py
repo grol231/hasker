@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader, Context
 from django.shortcuts import render
 from .forms import NameForm
+from .models import Users
 
 def index(request):
     template = loader.get_template('qa/index.html')
@@ -42,7 +43,6 @@ def signup(request):
     if request.method == 'POST':
         print(request.POST)
         form = NameForm(request.POST)
-        print('is form vaild?')
         if form.is_valid():
             print('form is valid')
             print(form.cleaned_data['login'])
@@ -50,6 +50,7 @@ def signup(request):
             print(form.cleaned_data['password'])
             print(form.cleaned_data['repeat_password'])
             print('form is valid')
+            first_user = Users.objects.create(email='user_email', login='user_login', password='user_password', photo='user_photo') 
             return HttpResponseRedirect('/hasker/login')
     else:
         form = NameForm()
