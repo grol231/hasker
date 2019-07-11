@@ -7,6 +7,6 @@ class SignUpForm(forms.Form):
     repeat_password = forms.CharField(label='Repeat password')
 
 class AskQuestionForm(forms.Form):
-    title = forms.CharField(lable='title')
-    text = forms.CharField(lable='text')
-    tags = forms.CharField(lable='tags')
+    title = forms.CharField(label='title')
+    text = forms.CharField(label='text')
+    tags = forms.CharField(label='tags')

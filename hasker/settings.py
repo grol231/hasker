@@ -56,7 +56,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-#            '/home/kgm/otus/homework7/hasker/qa/templates'    
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,3 +127,14 @@ USE_TZ = True
 #]
 
 STATIC_URL = '/static/'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+        'TIMEOUT': 1,
+        'OPTIONS': {
+            'MAX_ENTRIES': 1
+        }
+    }
+}
