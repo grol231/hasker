@@ -4,4 +4,5 @@ hasker/*
 !hasker/settings.py
 !hasker/__init__.py
 qa/__pycache__
-qa/migrations/__pycache__
+qa/migrations/__pycache_
+qa/migrations
