@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'hasker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_db',
+        'NAME': 'hasker_db',
         'USER' : 'hasker',
         'PASSWORD' : '231231231',
         'HOST' : '127.0.0.1',
