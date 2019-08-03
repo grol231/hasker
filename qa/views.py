@@ -7,19 +7,19 @@ from .models import Users, Questions, Tags, Answers
 def index(request):
     questions = Questions.objects.order_by('ts')[:20]
     #questions = QuestionsTPM.objects.all()
-    users = Users.objects.all()
-    for u in users:
-        print(u.login)
-    counters = {}
-    for q in questions:
-        c = q.author_set.count()
-        print(c)
-        counters[q.title] = c
+#    users = Users.objects.all()
+#    for u in users:
+#        print(u.login)
+#    counters = {}
+#    for q in questions:
+#        c = q.author_set.count()
+#        print(c)
+ #       counters[q.title] = c
 #    question_id = questions.question_id
 #    print(question_id)
 #    answer_count = Answers.objects.count()
 #    print(answer_count)
-    return render(request, 'qa/index.html', {'questions': questions})    
+    return render(request, 'qa/index.html', {'questions': questions, 'array':[1,2,3,4,5]})    
 
 def ask_question(request):
     if request.method == 'POST':

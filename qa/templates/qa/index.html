@@ -141,68 +141,60 @@ input[type="search"] {
         </div>
     </div>
     <hr size='5px'>
-    <div class='row' style='padding-left: 50px'>
-        <div class='col-sm-8'>
-            <h2>Sign up</h2>
+    <div class='row' style='padding-left: 50px; marign-bottom: 30px;'>
+        <div class='col-sm-3' style='padding-right:0px;'>
+            <h4>New questions</h4>
         </div>
-        <div class='col-sm-4' style='padding: 0px 50px 0px 50px;'>
+        <div class='col-sm-4' style='padding:0; border-left: solid 3px black; margin-left: 5px; padding-left:5px; height:25px; color: gray'>
+            <h4>Hot questions</h4>
+        </div>
+        <div class='col-sm-4' style='padding: 0px 0px 0px 110px;'>
             <button style="width: 100%; border-radius: 4px; border: 1px solid black; height: 35px;">Ask!</button>
         </div>
     </div>
-    <div class='row' style='padding-left: 50px'>
-        <div class='col-sm-8'>
-            <form action='/hasker/signup' method='post'>
-                {% csrf_token %}
-                <div class='row signup-field'>
-                    <div class='col-sm-4'>
-                        <label>Login</label>
-                    </div>
-                    <div class='col-sm-8'>
-                        <input type='text' id=login  name='Login'>
-                    </div>
-                </div>
-                <div class='row signup-field'>
-                    <div class='col-sm-4'>
-                        <label>Email</label>
-                    </div>
-                    <div class='col-sm-8'>
-                        <input type='text' id=email  name='Email'>
-                    </div>
-                </div>
-                <div class='row signup-field'>
-                    <div class='col-sm-4'>
-                        <label>Password</label>
-                    </div>
-                    <div class='col-sm-8'>
-                        <input type='text' id="password" name='Password'>
-                    </div>
-                </div>
-                <div class='row signup-field'>
-                    <div class='col-sm-4' style='padding-right: 0px;'>
-                        <label>Repeat Password</label>
-                    </div> 
-                    <div class='col-sm-8'>
-                        <input type='text' id="rpassword" name='Repeat password'>
-                    </div>
-                </div>
-                <div class='row signup-field'>
-                    <div class='col-sm-4'>
-                        <label>Avatar</label>
-                    </div>
-                    <div class='col-sm-6'>
-                        <input type='file' id='avatar' class='signup-form-field-avatar'>
-                        <label id='avatar-path' style='width:20%'></label>
-                        <label for='avatar' class='btn' style='width:60%; margin-left: 30px'>Upload</label>
+    <div class='row' style='padding-left:65px;'>
+        <div class='col-sm-8' >
+            {% for X in array %}
+            <div class='row' style='border-top: solid 3px black; margin-top: 20px; width: 100%;'>
+                <div class='col-sm-12'>
+                    <div class='row'>
+                        <div class='col-sm-2' style='padding-top: 10px;'>
+                            42
+                        </div>
+                        <div class='col-sm-2' style='padding-top: 10px;'>
+                            2
+                        </div>
+                        <div class='col-sm-8' style='padding-top: 10px;'>
+                            How to solve the variable naming problem?
+                        </div>
+                    </div>   
+                    <div class='row'>
+                        <div class='col-sm-2' style='padding-top: 10px;'>
+                            Votes
+                        </div>
+                        <div class='col-sm-2' style='padding: 10px 0px 0px 0px;'>Answers</div>
+                        <div class='col-sm-4'>
+                            <div class='row'>
+                                <div class='col-sm-6' style='background:blue; text-align: center!important; padding: 5px 10px 5px 10px; border: 10px solid white; color: white'>tag1</div>
+                                <div class='col-sm-6' style='background:blue; text-align: center!important; padding: 5px 10px 5px 10px; border: 10px solid white; color: white'>tag2</div>
+                            </div>
+                        </div>
+                        <div class='col-sm-4'>
+                            <div class='row' style='padding-left: 50px;'>
+                               <a href='' style='text-decoration: underline'>Ivan</a>
+                            </div>
+                            <div class='row'>
+                                asked 1 min ago
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class='row'>
-                    <div class='col-sm-6 offset-sm-4' style='margin-top: 50px;'>
-                        <button style="width: 60%; border-radius: 4px; border: 1px solid black; height: 35px;">Enter</button>
-                    </div> 
-                </div>
-            </form> 
+            </div>
+            {% endfor %}
+            <div class='row' style='border-top: solid 3px black; margin-top: 20px; width: 100%;'>
+            </div>
         </div>
-        <div class='col-sm-4'>
+        <div class='col-sm-4' style='margin-top: 20px;'>
             <h2 style='text-align: center'>Trending</h2>
             {% for x in array %}
             <div class='row'>
